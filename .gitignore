@@ -154,6 +154,11 @@ cython_debug/
 
 # custom files
 __init__.py
+2603.09078v1.pdf
+notes.txt
+xsa_notes.pdf
+
+
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
