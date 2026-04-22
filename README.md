@@ -71,7 +71,8 @@ in early layers, drops toward the middle, then rises slightly at the end.
 | gpt2-medium (345M, 24L) | 0.63 | ~0.35 (L19) | 0.60 |
 | gpt2-large (774M, 36L) | 0.51 | ~0.32 (L28) | 0.59 |
 
-The minimum shifts to roughly 75–80% of depth across all three models.
+The minimum sits in the second half of the network (~45% of depth for gpt2,
+~80% for gpt2-medium and gpt2-large).
 $a_{i,i}$ is low (<0.05) in deep layers  GPT-2 does not self-attend heavily
 in depth. The late-layer rise in $\langle y_i, v_i \rangle$ appears to come
 from value vector geometry (correlated $v_j$) rather than from
@@ -102,5 +103,4 @@ github.com/TransformerLensOrg/TransformerLens
 ## Connect with me
 
 [LinkedIn](https://www.linkedin.com/in/francescopl/) · [Kaggle](https://www.kaggle.com/francescopaolol)
-
 

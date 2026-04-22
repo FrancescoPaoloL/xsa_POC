@@ -24,7 +24,7 @@ def save_plot(runs: dict[str, dict[str, list[float]]], path: str) -> None:
         ax.grid(True, linestyle="--", alpha=0.4)
         ax.legend(fontsize=8, loc="best")
 
-    fig.suptitle("Attention similarity bias — multi-model + BOS ablation  (ref: arXiv:2603.09078, Fig. 1)")
+    fig.suptitle("Attention similarity bias multi-model  (ref: arXiv:2603.09078, Fig. 1)")
     plt.tight_layout()
     plt.savefig(path, dpi=110)
     print(f"\nPlot saved: {path}")
