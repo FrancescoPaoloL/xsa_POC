@@ -3,6 +3,7 @@
 #
 # prepend_bos=False: tested with and without
 # no difference at SEQ_LEN=128 (the paper uses 2048, we use 128 to keep it fast on CPU)
+# see config.py file
 
 import torch
 from datasets import load_dataset
