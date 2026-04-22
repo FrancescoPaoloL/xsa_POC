@@ -65,11 +65,16 @@ the paper. The paper (1.3B, RoPE, FineWeb) reports a **monotonically
 increasing** trend with depth. GPT-2 shows a **U-shape**: bias is highest
 in early layers, drops toward the middle, then rises slightly at the end.
 
+![Attention similarity bias across GPT-2 variants](attention_similarity_bias.png)
+
 | Model | Layer 0 | Min | Last layer |
 |-------|---------|-----|------------|
 | gpt2 (117M, 12L) | 0.72 | ~0.35 (L5) | 0.50 |
 | gpt2-medium (345M, 24L) | 0.63 | ~0.35 (L19) | 0.60 |
 | gpt2-large (774M, 36L) | 0.51 | ~0.32 (L28) | 0.59 |
+
+Note: gpt2-medium shows a sharper rise at its final layer (visible as the
+orange spike in all three panels) than the other two models.
 
 The minimum sits in the second half of the network (~45% of depth for gpt2,
 ~80% for gpt2-medium and gpt2-large).
