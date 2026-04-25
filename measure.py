@@ -47,19 +47,19 @@ def _v_hook(l, v_buf, vv):
 
 
 def _p_hook(l, aii):
-    # Called when the attention pattern is ready. Read the diagonal to get a_{i,i}.
-    # p shape: (B, H, T, T).
     def fn(p, hook):
-        aii[l] = p.diagonal(dim1=-2, dim2=-1).mean().item()
+        # p shape: (B, H, T, T)
+        diag = p.diagonal(dim1=-2, dim2=-1)   # (B, H, T)
+        aii[l] = diag[..., 1:].mean().item()  # salta t=0
     return fn
 
 
 def _z_hook(l, v_buf, yv):
-    # Called when the attention output is ready. Compare it with the saved value vector.
-    # z shape: (B, T, H, D).
     def fn(z, hook):
+        # z shape: (B, T, H, D)
         v = v_buf.pop(l)
-        yv[l] = F.cosine_similarity(z, v, dim=-1).mean().item()
+        cos = F.cosine_similarity(z, v, dim=-1)  # (B, T, H)
+        yv[l] = cos[:, 1:, :].mean().item()      # salta t=0
     return fn
 
 
