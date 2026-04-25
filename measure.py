@@ -47,6 +47,7 @@ def _v_hook(l, v_buf, vv):
 
 
 def _p_hook(l, aii):
+    # Called when the attention pattern is ready. Read the diagonal to get a_{i,i}.
     def fn(p, hook):
         # p shape: (B, H, T, T)
         diag = p.diagonal(dim1=-2, dim2=-1)   # (B, H, T)
@@ -55,6 +56,7 @@ def _p_hook(l, aii):
 
 
 def _z_hook(l, v_buf, yv):
+    # Called when the attention output is ready. Compare it with the saved value vector.
     def fn(z, hook):
         # z shape: (B, T, H, D)
         v = v_buf.pop(l)
