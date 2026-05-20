@@ -38,6 +38,8 @@ def main() -> None:
         print(f"  svd done in {time.perf_counter() - t1:.2f}s")
 
         panels.update(svd)  # aggiunge effective_rank e stable_rank a panels
+        print("  svd keys:", list(svd.keys()))
+        print("  eff_rank_QK sample:", svd["eff_rank_QK"][:3])
         runs[model_name] = panels
 
         print_run(model_name, panels)
